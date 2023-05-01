@@ -1,8 +1,9 @@
-
+import "./LogIn.css"
 
 const LogIn = () => {
   return (
-    <div>LogIn</div>
+
+    <div className="login-container">LogIn</div>
   )
 }
 
