@@ -1,5 +1,5 @@
-import "./Banner.css";
 import Carousel from "react-bootstrap/Carousel";
+import "./Banner.css";
 
 import { useState } from "react";
 
