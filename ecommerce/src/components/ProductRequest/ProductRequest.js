@@ -22,7 +22,7 @@ const ProductRequest = () => {
     emailjs.sendForm('service_jvg8a9r', 'template_gwusf2z', form.current, 'YDO4PPWOkYjVV8mfT')
     .then((result) => {
    
-    if (regex.test(email) == false){ 
+    if (regex.test(email) === false){ 
     setError('correo invalido');
     }
 
