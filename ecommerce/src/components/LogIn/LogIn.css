@@ -1,4 +1,17 @@
-.login-container{
+.modal-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
-    margin-right: 60% ;
+}
+
+.modal-form Button {
+    margin: 15px;
+}
+   
+.modal-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
