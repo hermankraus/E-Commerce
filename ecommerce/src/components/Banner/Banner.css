@@ -1,0 +1,12 @@
+.img-container{
+    display: flex;
+    max-width: 100%;
+    
+}
+
+.img-container img{
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+
