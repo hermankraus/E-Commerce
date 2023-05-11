@@ -1,52 +1,68 @@
 import "./ProductRequest.css";
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import React, {useState} from 'react';
+// import emailjs from '@emailjs/browser';
 
 
 const ProductRequest = () => {
 
-  const regex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
+  const [values, setValues] = useState({
+      name: '',
+      email: '',
+      msg: '',
+  });
 
-  const form = useRef();
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    msg: '',
 
-  const emailValidator = (event) => {
-  return setEmail(event.target.value); 
-}
+  });
+
   
-  const sendEmail = (event) => {
-    event.preventDefault();
-
-    emailjs.sendForm('service_jvg8a9r', 'template_gwusf2z', form.current, 'YDO4PPWOkYjVV8mfT')
-    .then((result) => {
-   
-    if (regex.test(email) === false){ 
-    setError('correo invalido');
+    const handleSubmit = (event) => {
+      event.preventDefault();
     }
 
-    else{    
-    setError('correo valido');
-    console.log(result.text);
-      /*alert("sent")*/
-    return true;
-    } 
-    }, (error) => {
-        console.log(error.text);
-          /*alert("error")*/
-      });
-  };
+    const handleChange = (event) => {
+    
+      setValues({...values,[event.target.name] : event.target.value})
+      console.log('values',values)
+    }
+    
+    const emailValidator = () => {
+      emailRegexp.test(values.email) === false ? setErrors((errors) => ({ ...errors, email: 'Email incorrecto' })) : setErrors((errors) => ({ ...errors, email: '' }));
+    }
 
+    const emptyValidator = () => {
+      (values.name === '') ? setErrors((errors) => ({ ...errors, name: 'Nombre obligatorio' })) : setErrors((errors) => ({ ...errors, name: '' }));
+
+      (values.msg === '') ? setErrors((errors) => ({ ...errors, msg: 'Mensaje obligatorio' })) : setErrors((errors) => ({ ...errors, msg: '' }));
+
+
+    }
+    
   return (
-    <form className="field" ref={form} onSubmit={sendEmail}>
-      <label>Name</label>
-      <input type="text" name="user_name" />
-      <label>Email</label>
-      <input type="email" name="user_email" value={email} onChange={emailValidator}/>
-      <p> {error} </p>
-      <label>Message</label>
-      <textarea name="message" />
+
+    <form className="field"  onSubmit={handleSubmit}>
+      <label htmlFor="name"> Nombre </label>
+      <input id="name" type="text" name="name" value={values.name} onChange={handleChange} onBlur={emptyValidator}/>
+      
+      <p>{errors.name}</p>
+
+
+      <label htmlFor="email"> Email </label>
+      <input  id="email" type="email" name="email" value={values.email} onChange={handleChange} onBlur={emailValidator} />
+
+      <p>{errors.email}</p>
+      
+      <label htmlFor="message">Consulta</label>
+      <textarea name="msg" onChange={handleChange} onBlur={emptyValidator} value={values.msg}/>
+
+      <p>{errors.msg}</p>
+
+      
       <input type="submit" value="Send" />
     </form>
   );
