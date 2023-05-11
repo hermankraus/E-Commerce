@@ -8,15 +8,15 @@ const ProductRequest = () => {
   const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
   const [values, setValues] = useState({
-    name: "",
-    email: "",
-    msg: "",
+    name: undefined,
+    email: undefined,
+    msg: undefined,
   });
 
   const [errors, setErrors] = useState({
-    name: "Nombre obligatorio",
-    email: "Email incorrecto",
-    msg: "Mensaje obligatorio",
+    name: "",
+    email: "",
+    msg: "",
   });
 
   const formResultMessage = {
