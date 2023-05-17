@@ -37,9 +37,9 @@ function LogIn() {
 
   return (
     <>
-      <Button variant="Light" onClick={handleShow}>
-        Sing In
-      </Button>
+      <p className="sign-in" variant="Light" onClick={handleShow}>
+        Ingresar
+      </p>
 
       <Modal
         show={show}

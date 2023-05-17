@@ -1,0 +1,10 @@
+.navbar-container {
+  background-image: var(--bs-gradient);
+}
+
+.navbar-singin-shop {
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  margin-left: 120%;
+}

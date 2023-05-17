@@ -19,23 +19,25 @@ const ControlledCarousel = () => {
     >
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-flex w-100"
           src="./Media/prote.webp"
           alt="First slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-flex w-100"
           src="./Media/strenght.png"
           alt="Second slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          className="d-flex w-100"
           src="./Media/training.jpg"
           alt="Third slide"
+          width="50"
+          height=""
         />
       </Carousel.Item>
     </Carousel>

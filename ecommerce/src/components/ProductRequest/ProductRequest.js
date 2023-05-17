@@ -79,7 +79,7 @@ const ProductRequest = () => {
     }
   }
 
- /* const formMsg = (formOK) => {
+  /* const formMsg = (formOK) => {
     if (formOK === true) {
       return formResultMessage.ok;
     } else {
@@ -90,44 +90,49 @@ const ProductRequest = () => {
   console.log("errores", errors);
 
   return (
-    <form ref={form} className="field" onSubmit={handleSubmit}>
-      <label htmlFor="name"> Nombre </label>
-      <input
-        id="name"
-        type="text"
-        name="name"
-        value={values.name}
-        onChange={handleChange}
-        onBlur={nameValidator}
-      />
+    <>
+      <form ref={form} className="field" onSubmit={handleSubmit}>
+        <h4 className="">
+          En este formulario vas a poder contactarnos para resolver tus
+          consultas
+        </h4>
+        <label htmlFor="name"> Nombre </label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          value={values.name}
+          onChange={handleChange}
+          onBlur={nameValidator}
+        />
 
-      <p class="text-danger">{errors.name}</p>
+        <p class="text-danger">{errors.name}</p>
 
-      <label htmlFor="email"> Email </label>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        value={values.email}
-        onChange={handleChange}
-        onBlur={emailValidator}
-      />
+        <label htmlFor="email"> Email </label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          value={values.email}
+          onChange={handleChange}
+          onBlur={emailValidator}
+        />
 
-      <p class="text-danger">{errors.email}</p>
+        <p class="text-danger">{errors.email}</p>
 
-      <label htmlFor="message">Consulta</label>
-      <textarea
-        name="msg"
-        onChange={handleChange}
-        onBlur={msgValidator}
-        value={values.msg}
-      />
+        <label htmlFor="message">Consulta</label>
+        <textarea
+          name="msg"
+          onChange={handleChange}
+          onBlur={msgValidator}
+          value={values.msg}
+        />
 
-      <p class="text-danger">{errors.msg}</p>
+        <p class="text-danger">{errors.msg}</p>
 
-      <input type="submit" value="Send" />
-
-    </form>
+        <input type="submit" value="Send" />
+      </form>
+    </>
   );
 };
 
