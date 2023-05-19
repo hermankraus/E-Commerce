@@ -7,9 +7,6 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <Card />
-      <Card />
-      <Card />
-      <Card />
     </div>
   );
 };

@@ -1,5 +1,6 @@
 .navbar-container {
   background-image: var(--bs-gradient);
+  font-family: "Rubik", sans-serif;
 }
 
 .navbar-singin-shop {

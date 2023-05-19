@@ -1,20 +1,51 @@
-import React from "react";
 import "./Card.css";
 
-const Card = () => {
-const addToCartButtonHandler = ()=>{
+import React, { useEffect, useState } from "react";
+import { db } from "../../config/Firebase";
+import { getDocs, collection } from "firebase/firestore";
 
-}
-const descriptionButtonHandler = ()=>{
-  
-}
+const Card = () => {
+  const addToCartButtonHandler = () => {};
+  const descriptionButtonHandler = () => {};
+
+  const [productsList, setProductsList] = useState([]);
+
+  const productsCollectionRef = collection(db, "products");
+
+  useEffect(() => {
+    const getProductList = async () => {
+      // read data
+      //set product list
+      try {
+        const data = await getDocs(productsCollectionRef);
+        const filteredData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+
+        console.log(filteredData);
+        setProductsList(filteredData);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getProductList();
+  }, []);
 
   return (
     <div className="card-div">
-      <p>Soy un suplemento</p>
-      <button onClick={descriptionButtonHandler}>Descripcion</button>
+      {productsList.map((product) => (
+        <div>
+          <p>{product.MARCA}</p>
+          <p>{product.PRODUCTO}</p>
+          <p>${product.PRECIO}</p>
+        </div>
+      ))}
       <button onClick={addToCartButtonHandler}>Añadir al carrito</button>
     </div>
+
+    //<p>Soy un suplemento</p>
+    //<button onClick={descriptionButtonHandler}>Descripcion</button>
   );
 };
 
