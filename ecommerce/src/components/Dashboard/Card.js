@@ -6,7 +6,6 @@ import { getDocs, collection } from "firebase/firestore";
 
 const Card = () => {
   const addToCartButtonHandler = () => {};
-  const descriptionButtonHandler = () => {};
 
   const [productsList, setProductsList] = useState([]);
 
@@ -43,9 +42,6 @@ const Card = () => {
       ))}
       <button onClick={addToCartButtonHandler}>Añadir al carrito</button>
     </div>
-
-    //<p>Soy un suplemento</p>
-    //<button onClick={descriptionButtonHandler}>Descripcion</button>
   );
 };
 
