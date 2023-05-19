@@ -1,17 +1,16 @@
-.modal-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
+.modal-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .modal-form Button {
-    margin: 15px;
+  margin: 15px;
 }
-   
+
 .modal-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

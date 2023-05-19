@@ -1,16 +1,11 @@
-import React from "react"
-import "./Header.css"
-const Header = ({children}) => {
+import React from "react";
+import "./Header.css";
+const Header = () => {
   return (
-    <div className="header-container">
-        
-        
-        <h1>STRENGTH STORE</h1>
-
-        <div className="login-shop-container"> {children} </div>
-      
+    <div>
+      <p className="title">STRENGTH STORE</p>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
