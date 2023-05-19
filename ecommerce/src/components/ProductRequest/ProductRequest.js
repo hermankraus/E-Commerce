@@ -52,7 +52,7 @@ const ProductRequest = () => {
     event.preventDefault();
     if (
       errors.email === undefined &&
-      errors.msg === undefined &&
+      errors.name === undefined &&
       errors.msg === undefined
     ) {
       formOK = true;
@@ -68,6 +68,7 @@ const ProductRequest = () => {
         .then((result) => {
           if (result.status === Number(200)) {
             formOK = true;
+            alert("enviado");
           } else {
             formOK = false;
             alert("Error de servidor");
@@ -76,6 +77,7 @@ const ProductRequest = () => {
     } else {
       formOK = false;
       console.log("no ok ", formOK);
+      alert("Completar campos");
     }
   }
 
