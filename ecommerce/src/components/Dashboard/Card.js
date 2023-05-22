@@ -33,19 +33,18 @@ const Card = () => {
   }, []);
 
   return (
+    <>
+      {productsList.map((products) => (
     <div className="card-div">
-      {productsList.map((product) => (
         <div>
-          <p>{product.MARCA}</p>
-          <p>{product.PRODUCTO}</p>
-          <p>${product.PRECIO}</p>
+          <p>{products.MARCA}</p>
+          <p>{products.PRODUCTO}</p>
+          <p>${products.PRECIO}</p>
         </div>
-      ))}
       <button onClick={addToCartButtonHandler}>Añadir al carrito</button>
     </div>
-
-    //<p>Soy un suplemento</p>
-    //<button onClick={descriptionButtonHandler}>Descripcion</button>
+      ))}
+    </>
   );
 };
 
