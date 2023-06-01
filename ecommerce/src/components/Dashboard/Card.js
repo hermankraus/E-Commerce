@@ -6,7 +6,6 @@ import { getDocs, collection } from "firebase/firestore";
 
 const Card = () => {
   const addToCartButtonHandler = () => {};
-  const descriptionButtonHandler = () => {};
 
   const [productsList, setProductsList] = useState([]);
 

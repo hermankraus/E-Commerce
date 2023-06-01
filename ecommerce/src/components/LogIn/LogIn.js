@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { BsFillPeopleFill } from "react-icons/bs";
+
 import "./LogIn.css";
 
 function LogIn() {
@@ -38,7 +40,7 @@ function LogIn() {
   return (
     <>
       <p className="sign-in" variant="Light" onClick={handleShow}>
-        Ingresar
+        <BsFillPeopleFill />
       </p>
 
       <Modal
