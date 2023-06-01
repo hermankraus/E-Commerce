@@ -32,16 +32,18 @@ const Card = () => {
   }, []);
 
   return (
-    <div className="card-div">
+    <>
       {productsList.map((product) => (
-        <div>
-          <p>{product.MARCA}</p>
-          <p>{product.PRODUCTO}</p>
-          <p>${product.PRECIO}</p>
+        <div className="card-div">
+          <div>
+            <p>{product.MARCA}</p>
+            <p>{product.PRODUCTO}</p>
+            <p>${product.PRECIO}</p>
+          </div>
+          <button onClick={addToCartButtonHandler}>Añadir al carrito</button>
         </div>
       ))}
-      <button onClick={addToCartButtonHandler}>Añadir al carrito</button>
-    </div>
+    </>
   );
 };
 
