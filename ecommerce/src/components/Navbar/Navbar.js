@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
 import Header from "../Header/Header";
-import Shop from "../Shop/Shop";
 import LogIn from "../LogIn/LogIn";
 
 const Navbar = () => {
