@@ -19,10 +19,10 @@ const ProductRequest = () => {
     msg: "",
   });
 
-  const formResultMessage = {
+  /* const formResultMessage = {
     ok: "Formulario enviado",
     notOk: "Formulario rechazado",
-  };
+  };*/
 
   let formOK = false;
 
