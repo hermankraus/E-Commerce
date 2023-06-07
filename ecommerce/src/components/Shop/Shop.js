@@ -43,46 +43,52 @@ const Shop = () => {
   return (
     <div className="shop-container">
       <h2>Carrito de compras</h2>
-      <table className="product-table">
-        <thead>
-          <tr>
-            <th>Marca</th>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(productCounts).map((productId) => {
-            const product = cartItems.find((item) => item.id === productId);
-            const quantity = productCounts[productId];
-
-            return (
-              <tr key={productId}>
-                <td>{product.MARCA}</td>
-                <td>{product.PRODUCTO}</td>
-                <td>{quantity}</td>
-                <td>${parseFloat(product.PRECIO).toLocaleString()}</td>
-                <td>
-                  <button onClick={() => handleRemoveFromCart(productId)}>
-                    Eliminar
-                  </button>
-                </td>
+      {cartItems.length === 0 ? (
+        <p>Carrito vacío</p>
+      ) : (
+        <>
+          <table className="product-table">
+            <thead>
+              <tr>
+                <th>Marca</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
               </tr>
-            );
-          })}
+            </thead>
+            <tbody>
+              {Object.keys(productCounts).map((productId) => {
+                const product = cartItems.find((item) => item.id === productId);
+                const quantity = productCounts[productId];
 
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Total: ${parseFloat(total).toLocaleString()}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div className="checkout">
-        <button onClick={handleBuy}>Finalizar compra</button>
-      </div>
+                return (
+                  <tr key={productId}>
+                    <td>{product.MARCA}</td>
+                    <td>{product.PRODUCTO}</td>
+                    <td>{quantity}</td>
+                    <td>${parseFloat(product.PRECIO).toLocaleString()}</td>
+                    <td>
+                      <button onClick={() => handleRemoveFromCart(productId)}>
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total: ${parseFloat(total).toLocaleString()}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="checkout">
+            <button onClick={handleBuy}>Finalizar compra</button>
+          </div>
+        </>
+      )}
       {showModal && (
         <div className="custom-modal-overlay">
           <div className="custom-modal-content">
@@ -97,14 +103,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
-/*
-{showModal && (
-  <div className="modal">
-    <div className="modal-content">
-      <h3>Compra realizada con éxito</h3>
-      <p>¡Gracias por tu compra!</p>
-      <button onClick={closeModal}>Cerrar</button>
-    </div>
-  </div>
-)}*/

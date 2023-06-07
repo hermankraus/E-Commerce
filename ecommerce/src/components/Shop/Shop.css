@@ -1,5 +1,6 @@
 .shop-container {
   margin: 20px;
+  text-align: center;
 }
 
 .product-table {
@@ -48,10 +49,15 @@
 }
 
 .custom-modal-content {
-  border: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  background-color: antiquewhite;
   max-width: 300px;
   margin: auto;
-  align-items: center;
+  padding: 6px;
 }
 
 .custom-modal-content h3 {
@@ -66,7 +72,7 @@
   align-items: center;
   background-color: #4caf50;
   color: #fff;
-  border: none;
+  border: 1px;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
