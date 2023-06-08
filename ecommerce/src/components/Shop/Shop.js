@@ -35,7 +35,7 @@ const Shop = () => {
 
   const closeModal = () => {
     setShowModal(false);
-    window.location.reload();
+    cartContext.clearCart();
   };
 
   console.log(showModal);

@@ -24,6 +24,10 @@ function App() {
     setCartItems(updatedCartItems);
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <div className="App">
       <CartContext.Provider
@@ -31,6 +35,7 @@ function App() {
           cartItems: cartItems,
           addToCart: addToCart,
           removeFromCart: removeFromCart,
+          clearCart: clearCart,
         }}
       >
         <Router>
