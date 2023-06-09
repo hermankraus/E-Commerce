@@ -11,11 +11,11 @@ import "./LogIn.css";
 function LogIn() {
   const USER_DATA = [
     {
-      user: "admin@admin.com",
-      password: "admin",
+      user: "a",
+      password: "a",
     },
-    { user: "empleado@user.com", password: "empleado" },
-    { user: "userRandom@user.com", password: "userRandom" },
+    { user: "e", password: "e" },
+    { user: "r", password: "r" },
   ];
   const [show, setShow] = useState(false);
   const [inputMail, setInputMail] = useState("");
@@ -60,7 +60,7 @@ function LogIn() {
       setInputMail("");
       setInputPassword("");
     } else {
-      if (user.user === "admin@admin.com" && user.password === "admin") {
+      if (user.user === "a" && user.password === "a") {
         // setRedirectToAdmin(true);
         setIsLoggedIn(true);
         setShow(false);

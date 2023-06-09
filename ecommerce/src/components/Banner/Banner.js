@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "./Banner.css";
-
+import LogIn from "../LogIn/LogIn";
 import { useState } from "react";
 
 const ControlledCarousel = () => {
@@ -10,8 +10,8 @@ const ControlledCarousel = () => {
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
-
   return (
+    <>
     <Carousel
       activeIndex={index}
       onSelect={handleSelect}
@@ -41,6 +41,8 @@ const ControlledCarousel = () => {
         />
       </Carousel.Item>
     </Carousel>
+    
+    </>
   );
 };
 

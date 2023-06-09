@@ -4,7 +4,8 @@ import { FaShoppingCart } from "react-icons/fa";
 
 import Header from "../Header/Header";
 import LogIn from "../LogIn/LogIn";
-
+import Admin from "../Admin/Admin";
+const isEmployee = true
 const Navbar = () => {
   return (
     <div className="navbar-container">
@@ -31,6 +32,14 @@ const Navbar = () => {
                   Contactanos
                 </Link>
               </li>
+              {isEmployee && (
+                <li className="nav-item">
+                  <Link className="nav-link" to="/admin">
+                    Admin
+                  </Link>
+                </li> 
+              )}
+
               <div className="navbar-singin-shop">
                 <li className="nav-item">
                   <Link className="nav-link" to="/shop">

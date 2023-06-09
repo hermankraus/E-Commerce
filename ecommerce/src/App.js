@@ -9,6 +9,7 @@ import Banner from "./components/Banner/Banner";
 import ProductRequest from "./components/ProductRequest/ProductRequest";
 import NavBar from "./components/Navbar/Navbar";
 import Shop from "./components/Shop/Shop";
+import Admin from "./components/Admin/Admin";
 
 export const CartContext = createContext();
 
@@ -43,6 +44,7 @@ function App() {
           <Routes>
             <Route path="/" exact Component={Banner} />
             <Route path="/products" exact Component={Dashboard} />
+            <Route path="/admin" exact Component={Admin} />
             <Route path="/contact-us" exact Component={ProductRequest} />
             <Route path="/shop" exact Component={Shop} />
           </Routes>
