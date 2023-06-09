@@ -1,7 +1,7 @@
 import { db } from './config/Firebase'
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs,addDoc, collection } from "firebase/firestore";
 
-const productsCollectionRef = collection(db, "products");
+export const productsCollectionRef = collection(db, "products");
 
 
   export const getProductList = async () => {
@@ -19,3 +19,5 @@ const productsCollectionRef = collection(db, "products");
       console.error(err);
     }
   };
+  
+
