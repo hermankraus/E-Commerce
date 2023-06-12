@@ -24,7 +24,7 @@ const Shop = () => {
   });
 
   const total = cartItems.reduce(
-    (accumulator, item) => accumulator + parseFloat(item.PRECIO),
+    (accumulator, item) => accumulator + parseFloat(item.PRICE),
     0
   );
 
@@ -63,10 +63,10 @@ const Shop = () => {
 
                 return (
                   <tr key={productId}>
-                    <td>{product.MARCA}</td>
-                    <td>{product.PRODUCTO}</td>
+                    <td>{product.BRAND}</td>
+                    <td>{product.PRODUCT}</td>
                     <td>{quantity}</td>
-                    <td>${parseFloat(product.PRECIO).toLocaleString()}</td>
+                    <td>${parseFloat(product.PRICE).toLocaleString()}</td>
                     <td>
                       <button onClick={() => handleRemoveFromCart(productId)}>
                         Eliminar
