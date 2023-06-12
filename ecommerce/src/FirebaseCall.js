@@ -1,7 +1,8 @@
 import { db } from './config/Firebase'
-import { getDocs,addDoc, collection } from "firebase/firestore";
+import { getDocs,updateDoc, collection, doc } from "firebase/firestore";
 
 export const productsCollectionRef = collection(db, "products");
+
 
 
   export const getProductList = async () => {
@@ -13,7 +14,6 @@ export const productsCollectionRef = collection(db, "products");
       }));
    
 
-      console.log(filteredData);
       return filteredData
     } catch (err) {
       console.error(err);
@@ -21,3 +21,17 @@ export const productsCollectionRef = collection(db, "products");
   };
   
 
+export const UpdateProduct = async (id,{data})=>{
+  const productCollectionID = doc(db, "products", id)
+  await updateDoc(productCollectionID,{data})
+
+}
+export const updateProducts = async(id, brand,price,name)=>{
+  const productCollectionID = doc(db, "products", id);
+  await updateDoc(productCollectionID, {
+      BRAND: brand,
+      PRICE: price,
+      PRODUCT: name,
+      STATE: true,
+    });
+}

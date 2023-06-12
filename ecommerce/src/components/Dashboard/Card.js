@@ -26,9 +26,9 @@ const Card = () => {
           {product.STATE && (
             <div className="card-div" >
               <div>
-                <p>{product.MARCA}</p>
-                <p>{product.PRODUCTO}</p>
-                <p>${product.PRECIO}</p>
+                <p>{product.BRAND}</p>
+                <p>{product.PRODUCT}</p>
+                <p>${product.PRICE}</p>
               </div>
               <button onClick={() => handleAddToCart(product)}>
                 Agregar al carrito

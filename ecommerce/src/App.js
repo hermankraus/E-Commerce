@@ -44,7 +44,7 @@ function App() {
           <Routes>
             <Route path="/" exact Component={Banner} />
             <Route path="/products" exact Component={Dashboard} />
-            <Route path="/admin" exact Component={Admin } />
+            <Route path="/admin" exact Component={Admin} />
             <Route path="/contact-us" exact Component={ProductRequest} />
             <Route path="/shop" exact Component={Shop} />
           </Routes>
