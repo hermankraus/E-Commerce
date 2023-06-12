@@ -21,7 +21,7 @@ const FormProducts = ({ products, refreshList }) => {
         });
       } else {
         if (newPrBrand !== "" && newPrname !=="" && newPrPrice !== 0) {
-          updateProducts(productId, newPrBrand, newPrPrice, newPrname);
+          updateProducts(productId, newPrBrand, newPrPrice, newPrname, true);
         }
       }
 
