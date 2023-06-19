@@ -79,23 +79,26 @@ const ProductRequest = () => {
           "0iEDEZ13pK13800xG"
         )
         .then((response) => {
+          setFormSubmitted(true);
           setTimeout(() => {
-            setFormSubmitted(true);
+            setFormSubmitted(false);
           }, 1000);
         })
         .catch((error) => {
           // console.error("Error al enviar el formulario:", error);
 
+          setErrorMessage("Error de servidor al enviar el formulario");
           setTimeout(() => {
-            setErrorMessage("Error de servidor al enviar el formulario");
+            setErrorMessage("");
           }, 1000);
         });
     } else {
+      setErrorMessage("Por favor completar todos los campos");
       setTimeout(() => {
-        setErrorMessage("Por favor completar todos los campos");
+        setErrorMessage("");
       }, 1000);
     }
-    setErrorMessage("");
+    resetForm();
   };
 
   return (
