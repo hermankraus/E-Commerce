@@ -4,13 +4,15 @@ import emailjs from "@emailjs/browser";
 
 const ProductRequest = () => {
   const form = useRef();
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
   const [values, setValues] = useState({
-    name: undefined,
-    email: undefined,
-    msg: undefined,
+    name: "",
+    email: "",
+    msg: "",
   });
 
   const [errors, setErrors] = useState({
@@ -19,45 +21,56 @@ const ProductRequest = () => {
     msg: "",
   });
 
-  /* const formResultMessage = {
-    ok: "Formulario enviado",
-    notOk: "Formulario rechazado",
-  };*/
-
-  let formOK = false;
-
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
-    console.log("values", values);
   };
 
   const emailValidator = () => {
-    emailRegexp.test(values.email) === false || values.email === ""
-      ? setErrors((errors) => ({ ...errors, email: "Email incorrecto" }))
-      : setErrors((errors) => ({ ...errors, email: undefined }));
+    if (!emailRegexp.test(values.email) || values.email === "") {
+      setErrors((errors) => ({ ...errors, email: "Email incorrecto" }));
+    } else {
+      setErrors((errors) => ({ ...errors, email: undefined }));
+    }
   };
+
   const nameValidator = () => {
-    values.name === ""
-      ? setErrors((errors) => ({ ...errors, name: "Nombre obligatorio" }))
-      : setErrors((errors) => ({ ...errors, name: undefined }));
+    if (values.name === "") {
+      setErrors((errors) => ({ ...errors, name: "Nombre obligatorio" }));
+    } else {
+      setErrors((errors) => ({ ...errors, name: undefined }));
+    }
   };
 
   const msgValidator = () => {
-    values.msg === ""
-      ? setErrors((errors) => ({ ...errors, msg: "Mensaje obligatorio" }))
-      : setErrors((errors) => ({ ...errors, msg: undefined }));
+    if (values.msg === "") {
+      setErrors((errors) => ({ ...errors, msg: "Mensaje obligatorio" }));
+    } else {
+      setErrors((errors) => ({ ...errors, msg: undefined }));
+    }
   };
 
-  function handleSubmit(event) {
+  const resetForm = () => {
+    setValues({
+      name: "",
+      email: "",
+      msg: "",
+    });
+    setErrors({
+      name: "",
+      email: "",
+      msg: "",
+    });
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
+
     if (
       errors.email === undefined &&
       errors.name === undefined &&
-      errors.msg === undefined
+      errors.msg === undefined &&
+      values !== ""
     ) {
-      formOK = true;
-      console.log("ok", formOK);
-
       emailjs
         .sendForm(
           "service_jvg8a9r",
@@ -65,36 +78,33 @@ const ProductRequest = () => {
           form.current,
           "0iEDEZ13pK13800xG"
         )
-        .then((result) => {
-          if (result.status === Number(200)) {
-            formOK = true;
-            alert("enviado");
-          } else {
-            formOK = false;
-            alert("Error de servidor");
-          }
+        .then((response) => {
+          setFormSubmitted(true);
+          setTimeout(() => {
+            setFormSubmitted(false);
+          }, 1000);
+        })
+        .catch((error) => {
+          // console.error("Error al enviar el formulario:", error);
+
+          setErrorMessage("Error de servidor al enviar el formulario");
+          setTimeout(() => {
+            setErrorMessage("");
+          }, 1000);
         });
     } else {
-      formOK = false;
-      console.log("no ok ", formOK);
-      alert("Completar campos");
+      setErrorMessage("Por favor completar todos los campos");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 1000);
     }
-  }
-
-  /* const formMsg = (formOK) => {
-    if (formOK === true) {
-      return formResultMessage.ok;
-    } else {
-      return formResultMessage.notOk;
-    }
+    resetForm();
   };
-*/
-  console.log("errores", errors);
 
   return (
     <>
       <form ref={form} className="field" onSubmit={handleSubmit}>
-        <h4 className="">
+        <h4>
           En este formulario vas a poder contactarnos para resolver tus
           consultas
         </h4>
@@ -107,8 +117,7 @@ const ProductRequest = () => {
           onChange={handleChange}
           onBlur={nameValidator}
         />
-
-        <p class="text-danger">{errors.name}</p>
+        <p className="text-danger">{errors.name}</p>
 
         <label htmlFor="email"> Email </label>
         <input
@@ -119,8 +128,7 @@ const ProductRequest = () => {
           onChange={handleChange}
           onBlur={emailValidator}
         />
-
-        <p class="text-danger">{errors.email}</p>
+        <p className="text-danger">{errors.email}</p>
 
         <label htmlFor="message">Consulta</label>
         <textarea
@@ -129,8 +137,13 @@ const ProductRequest = () => {
           onBlur={msgValidator}
           value={values.msg}
         />
+        <p className="text-danger">{errors.msg}</p>
 
-        <p class="text-danger">{errors.msg}</p>
+        {formSubmitted ? (
+          <p className="success-message">Formulario enviado</p>
+        ) : (
+          <p className="error-message">{errorMessage}</p>
+        )}
 
         <input type="submit" value="Send" />
       </form>
