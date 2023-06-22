@@ -8,6 +8,7 @@ const FormProducts = ({ products, refreshList }) => {
   const [newPrname, setNewPrname] = useState("");
   const [newPrPrice, setNewPrPrice] = useState(0);
   const [productId, setproductId] = useState("");
+
   const setNewProducts = async (e) => {
     e.preventDefault();
     try {
@@ -90,7 +91,7 @@ const FormProducts = ({ products, refreshList }) => {
         </button>}
         
       </form>
-      <ListofProducts products={products} productEdited={productEdited} />
+      <ListofProducts products={products} productEdited={productEdited} refreshList = {refreshList} />
     </>
   );
 };

@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { updateProducts } from "../../FirebaseCall";
 
-const ListofProducts = ({ products, productEdited }) => {
+const ListofProducts = ({ products, productEdited, refreshList }) => {
   const [listState, setListState] = useState(true);
 
   const editButtonHandler = (product) => {
     productEdited(product);
   };
-  const removeButtonHandler = (id, brand, price, product, state) => {
+  const onClickButtonHandler = (id, brand, price, product, state) => {
     updateProducts(id, brand, price, product, state);
+    refreshList();
   };
 
   const productsFiltered = products.filter((product) => {
@@ -40,7 +41,7 @@ const ListofProducts = ({ products, productEdited }) => {
                   <button
                     className="btn btn-danger m-1"
                     onClick={() =>
-                      removeButtonHandler(
+                      onClickButtonHandler(
                         product.id,
                         product.BRAND,
                         product.PRICE,
@@ -69,7 +70,7 @@ const ListofProducts = ({ products, productEdited }) => {
                   <button
                     className="btn btn-success m-1"
                     onClick={() =>
-                      removeButtonHandler(
+                      onClickButtonHandler(
                         product.id,
                         product.BRAND,
                         product.PRICE,
