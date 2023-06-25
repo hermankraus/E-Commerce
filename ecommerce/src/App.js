@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useContext } from "react";
 
 import "./App.css";
 
@@ -9,10 +10,13 @@ import NavBar from "./components/Navbar/Navbar";
 import Shop from "./components/Shop/Shop";
 import Admin from "./components/Admin/Admin";
 import { CartProvider } from "./components/Shop/CartContext";
+import { ThemeContext } from "./ThemeContext";
 
 function App() {
+  const { darkMode } = useContext(ThemeContext);
+
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? "dark-mode" : "light-mode"}`}>
       <CartProvider>
         <Router>
           <NavBar />

@@ -1,3 +1,62 @@
+html,
+body,
+div#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .App {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
   font-family: "Rubik", sans-serif;
+}
+
+.theme-button button {
+  min-width: 130px;
+  height: 40px;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #212529;
+  background: #212529;
+}
+
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light-mode nav {
+  background-color: #f2f2f2;
+}
+
+.light-mode button {
+  background-color: #f2f2f2;
+  color: #000000;
+}
+
+.light-mode label {
+  color: #513a04;
+}
+
+/* Estilos para el modo oscuro */
+.dark-mode {
+  background-color: #212121;
+  color: #ffffff;
+}
+
+.dark-mode nav {
+  background-color: #333333;
+}
+
+.dark-mode button {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark-mode {
+  color: #f2f2f2;
 }
