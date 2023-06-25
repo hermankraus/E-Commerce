@@ -54,6 +54,7 @@
   align-items: center;
   flex-direction: column;
   border-radius: 20px;
+  color: black;
   background-color: antiquewhite;
   max-width: 300px;
   margin: auto;
@@ -62,6 +63,7 @@
 
 .custom-modal-content h3 {
   margin-top: 0;
+  color: black;
 }
 
 .custom-modal-content p {
