@@ -11,6 +11,7 @@ div#root {
   width: 100%;
   min-height: 100%;
   font-family: "Rubik", sans-serif;
+  margin-bottom: -5%;
 }
 
 .theme-button button {
@@ -22,6 +23,7 @@ div#root {
   border-radius: 5px;
   border: 2px solid #212529;
   background: #212529;
+  margin-left: 80%;
 }
 
 .light-mode {
