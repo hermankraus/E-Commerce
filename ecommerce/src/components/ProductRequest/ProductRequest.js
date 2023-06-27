@@ -124,6 +124,7 @@ const ProductRequest = () => {
           id="email"
           type="email"
           name="email"
+          autoComplete="on"
           value={values.email}
           onChange={handleChange}
           onBlur={emailValidator}

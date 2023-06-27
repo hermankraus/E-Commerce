@@ -4,9 +4,14 @@ import { FaShoppingCart } from "react-icons/fa";
 
 import Header from "../Header/Header";
 import LogIn from "../LogIn/LogIn";
-import Admin from "../Admin/Admin";
-const isEmployee = true
+import { AuthContext } from "../Contexts/AuthContext";
+import { useContext } from "react";
+
+
+
+
 const Navbar = () => {
+  const { userType } = useContext(AuthContext);
   return (
     <div className="navbar-container">
       <nav className="navbar navbar-expand-lg bg-warning">
@@ -32,14 +37,16 @@ const Navbar = () => {
                   Contactanos
                 </Link>
               </li>
-              {isEmployee && (
+              {userType === "admin" ?(
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin">
                     Admin
                   </Link>
-                </li> 
-              )}
-
+                </li> ): userType === "employee" ? <li className="nav-item">
+                  <Link className="nav-link" to="/employee">
+                    Empleado
+                  </Link>
+                </li>: null}
               <div className="navbar-singin-shop">
                 <li className="nav-item">
                   <Link className="nav-link" to="/shop">

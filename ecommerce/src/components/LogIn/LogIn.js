@@ -1,27 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { FaSignOutAlt } from "react-icons/fa";
-
-import { Navigate } from "react-router-dom";
-
+import { getUsersList } from "../../FirebaseCall";
+import { AuthContext } from "../Contexts/AuthContext";
 import "./LogIn.css";
+import { CartContext } from "../Shop/CartContext";
 
 function LogIn() {
-  const USER_DATA = [
-    {
-      user: "a",
-      password: "a",
-    },
-    { user: "e", password: "e" },
-    { user: "r", password: "r" },
-  ];
+  const { setUserType } = useContext(AuthContext);
+  const { clearCart } = useContext(CartContext);
   const [show, setShow] = useState(false);
   const [inputMail, setInputMail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  //const [redirectToAdmin, setRedirectToAdmin] = useState(false);
+  const [userData, setUserData] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogoutConfirmation, setShowLogoutConfirmation] = useState(false);
 
@@ -51,25 +45,48 @@ function LogIn() {
   const buttonSignHandler = (e) => {
     e.preventDefault();
 
-    const user = USER_DATA.find(
-      (data) => data.user === inputMail && data.password === inputPassword
+    const adminAccount = userData.find(
+      (data) =>
+        data.email === inputMail &&
+        data.contraseña === inputPassword &&
+        data.userCat === "admin"
     );
 
-    if (!user) {
+    const employeeAccount = userData.find(
+      (data) =>
+        data.email === inputMail &&
+        data.contraseña === inputPassword &&
+        data.userCat === "employee"
+    );
+
+    const clientAccount = userData.find(
+      (data) =>
+        data.email === inputMail &&
+        data.contraseña === inputPassword &&
+        data.userCat === "client"
+    );
+
+    if (adminAccount) {
+      setIsLoggedIn(true);
+      setShow(false);
+      setErrorMessage("");
+      setUserType("admin");
+    } else if (employeeAccount) {
+      setIsLoggedIn(true);
+      setShow(false);
+      setErrorMessage("");
+      setUserType("employee");
+    } else if (clientAccount) {
+      setIsLoggedIn(true);
+      setShow(false);
+      setUserType("client");
+
+      setErrorMessage("");
+    } else {
       setErrorMessage("Credenciales incorrectas");
       setInputMail("");
       setInputPassword("");
-    } else {
-      if (user.user === "a" && user.password === "a") {
-        // setRedirectToAdmin(true);
-        setIsLoggedIn(true);
-        setShow(false);
-      } else {
-        setErrorMessage("");
-        alert("Ingreso exitoso");
-        setIsLoggedIn(true);
-        setShow(false);
-      }
+      setUserType("false");
     }
   };
 
@@ -81,12 +98,17 @@ function LogIn() {
     setShowLogoutConfirmation(false);
     if (confirmed) {
       setIsLoggedIn(false);
+      setUserType("false");
+      clearCart();
     }
   };
 
-  /*if (redirectToAdmin) {
-    return <Navigate to="/admin" />;
-  }*/
+  useEffect(() => {
+    getUsersList().then((filteredUserData) => {
+      setUserData(filteredUserData);
+    });
+  }, []);
+
   return (
     <>
       <p className="sign-in" variant="Light">
@@ -120,6 +142,8 @@ function LogIn() {
               value={inputPassword}
               type="password"
               onChange={passwordInputHandler}
+              name="password"
+              autoComplete="on"
             />
             {errorMessage && <p className="error-message">{errorMessage}</p>}
 
