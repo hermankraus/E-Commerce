@@ -1,11 +1,28 @@
 .navbar-container {
   background-image: var(--bs-gradient);
-  font-family: "Rubik", sans-serif;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+}
+.nav-item{
+ display: flex;
+ justify-content: center;
 }
 
-.navbar-singin-shop {
-  display: flex;
-  flex-direction: row;
-  align-items: right;
-  margin-left: 30vh;
+
+
+.dark-mode  li {
+  background-color: #353535;
+  color: #ffffff;
+}
+.dark-mode  li:hover {
+  background-color: #3b3b3b;
+  color: #ffffff;
+}
+
+.navbar-button{
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  min-height: 40px;
 }

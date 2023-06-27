@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { getProductList } from "../../FirebaseCall";
 import FormProducts from "./FormProducts";
 import { AuthContext } from "../Contexts/AuthContext";
-
+import "./Admin.css"
 const Admin = () => {
   const [products, setProducts] = useState([]);
   const { userType } = useContext(AuthContext);
@@ -18,12 +18,12 @@ const Admin = () => {
   return (
     <div className="container p-4">
       <nav className="list-group h-100">
-        <button
+        <li
           className="list-group-item list-group-item-action d-flex flex-row justify-content-start"
           onClick={onClickProductHandler}
         >
           Productos
-        </button>
+        </li>
 
         {userType === "admin" && (
           <a
