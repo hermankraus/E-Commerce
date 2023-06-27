@@ -1,7 +1,6 @@
 import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import "./Banner.css";
-import LogIn from "../LogIn/LogIn";
 import { useState } from "react";
 
 const ControlledCarousel = () => {

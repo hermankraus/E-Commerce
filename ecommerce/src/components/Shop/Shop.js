@@ -29,7 +29,6 @@ const Shop = () => {
   );
 
   const handleBuy = () => {
-    console.log("compra");
     setShowModal(true);
   };
 
@@ -37,8 +36,6 @@ const Shop = () => {
     setShowModal(false);
     cartContext.clearCart();
   };
-
-  console.log(showModal);
 
   return (
     <div className="shop-container">
