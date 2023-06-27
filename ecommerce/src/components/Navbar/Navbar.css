@@ -3,23 +3,21 @@
   font-family: "Roboto", sans-serif;
   display: flex;
 }
-.nav-item{
- display: flex;
- justify-content: center;
+.nav-item {
+  display: flex;
+  justify-content: center;
 }
 
-
-
-.dark-mode  li {
-  background-color: #353535;
+.dark-mode li {
+  background-color: #aea1a1;
   color: #ffffff;
 }
-.dark-mode  li:hover {
-  background-color: #3b3b3b;
+.dark-mode li:hover {
+  background-color: #aea1a1;
   color: #ffffff;
 }
 
-.navbar-button{
+.navbar-button {
   justify-content: center;
   align-items: center;
   background: none;

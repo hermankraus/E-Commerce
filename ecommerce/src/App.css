@@ -1,7 +1,4 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 
 html,
 body,
@@ -16,7 +13,6 @@ div#root {
   width: 100%;
   min-height: 100%;
   font-family: "Roboto", sans-serif;
-  
 }
 
 .theme-button button {
@@ -37,14 +33,12 @@ div#root {
 }
 
 .light-mode nav {
-  background-color: #f2f2f2;
+  background-color: #aea1a1;
 }
 .light-mode th {
   background-color: #f2f2f2;
   color: #3d3d3d;
 }
-
-
 
 .light-mode label {
   color: #513a04;
@@ -56,17 +50,17 @@ div#root {
   color: #ffffff;
 }
 
-.dark-mode nav {
-  background-color: #333333;
+.dark-mode nav,
+a {
+  background-color: #aea1a1;
 }
 
-.dark-mode  li {
-  background-color: #2a2a2a;
+.dark-mode li {
+  background-color: #aea1a1;
   color: #f3f3f3;
 }
-.dark-mode  li:hover {
-  background-color: #323232;
-  color: #f3f3f3;
+.dark-mode li:hover {
+  background-color: #aea1a1;
 }
 .dark-mode th {
   color: #000000;
@@ -74,8 +68,8 @@ div#root {
 
 .dark-mode {
   color: #f2f2f2;
+  height: 100%;
 }
 .sucess {
   background-color: #224515;
-
 }
