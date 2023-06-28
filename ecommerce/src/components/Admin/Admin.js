@@ -26,20 +26,20 @@ const Admin = () => {
         </li>
 
         {userType === "admin" && (
-          <a
+          <li
             className="list-group-item list-group-item-action d-flex flex-row justify-content-start"
             href="#!"
           >
             Usuarios
-          </a>
+          </li>
         )}
 
-        <a
+        <li
           className="list-group-item list-group-item-action d-flex flex-row justify-content-start"
           href="#!"
         >
           Pedidos
-        </a>
+        </li>
       </nav>
       <div className="container p-4 ">
         {buttonProduct && (
