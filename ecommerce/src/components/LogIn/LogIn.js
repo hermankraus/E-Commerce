@@ -48,21 +48,21 @@ function LogIn() {
     const adminAccount = userData.find(
       (data) =>
         data.email === inputMail &&
-        data.contraseña === inputPassword &&
+        data.password === inputPassword &&
         data.userCat === "admin"
     );
 
     const employeeAccount = userData.find(
       (data) =>
         data.email === inputMail &&
-        data.contraseña === inputPassword &&
+        data.password === inputPassword &&
         data.userCat === "employee"
     );
 
     const clientAccount = userData.find(
       (data) =>
         data.email === inputMail &&
-        data.contraseña === inputPassword &&
+        data.password === inputPassword &&
         data.userCat === "client"
     );
 
