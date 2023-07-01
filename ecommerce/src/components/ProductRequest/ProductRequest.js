@@ -133,6 +133,7 @@ const ProductRequest = () => {
 
         <label htmlFor="message">Consulta</label>
         <textarea
+        id="message"
           name="msg"
           onChange={handleChange}
           onBlur={msgValidator}

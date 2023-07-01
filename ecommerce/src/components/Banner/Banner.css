@@ -1,16 +1,11 @@
-.img-container {
+.carousel-container {
   display: flex;
-  max-width: 100%;
-  background-size: cover;
-  height: 100vh;
-  max-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
 }
 
-.img-container img {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  height: 100vh;
-  max-height: 100vh;
+.img-container {
+  max-width: 1000px; 
+  margin: 0 auto;
 }

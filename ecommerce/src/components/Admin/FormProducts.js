@@ -6,14 +6,18 @@ import ListofProducts from "./ListofProducts";
 const FormProducts = ({ products, refreshList }) => {
   const [newPrBrand, setNewPrBrand] = useState("");
   const [newPrname, setNewPrname] = useState("");
-  const [newPrPrice, setNewPrPrice] = useState(0);
+  const [newPrPrice, setNewPrPrice] = useState("");
   const [productId, setproductId] = useState("");
 
   const setNewProducts = async (e) => {
     e.preventDefault();
     try {
-      if (productId === "" && newPrBrand !== "" && newPrname !=="" && newPrPrice !== 0) {
-        
+      if (
+        productId === "" &&
+        newPrBrand !== "" &&
+        newPrname !== "" &&
+        newPrPrice !== 0
+      ) {
         await addDoc(productsCollectionRef, {
           BRAND: newPrBrand,
           PRICE: newPrPrice,
@@ -21,7 +25,7 @@ const FormProducts = ({ products, refreshList }) => {
           STATE: true,
         });
       } else {
-        if (newPrBrand !== "" && newPrname !=="" && newPrPrice !== 0) {
+        if (newPrBrand !== "" && newPrname !== "" && newPrPrice !== 0) {
           updateProducts(productId, newPrBrand, newPrPrice, newPrname, true);
         }
       }
@@ -57,6 +61,7 @@ const FormProducts = ({ products, refreshList }) => {
           <h2>Editar Producto...</h2>
         )}
         <input
+          id="brand"
           placeholder="agregar marca..."
           className="list-group-item list-group-item-action d-flex flex-row justify-content-start"
           value={newPrBrand}
@@ -65,6 +70,8 @@ const FormProducts = ({ products, refreshList }) => {
           }}
         />
         <input
+          id="price"
+          min="1"
           type="number"
           placeholder="agregar precio..."
           className="list-group-item list-group-item-action d-flex flex-row justify-content-start"
@@ -74,6 +81,7 @@ const FormProducts = ({ products, refreshList }) => {
           }}
         />
         <input
+          id="name-product"
           placeholder="agregar nombre producto..."
           className="list-group-item list-group-item-action d-flex flex-row justify-content-start"
           value={newPrname}
@@ -86,12 +94,17 @@ const FormProducts = ({ products, refreshList }) => {
         ) : (
           <button className="btn btn-primary m-2">Editar</button>
         )}
-        {newPrBrand !=="" && <button onClick={clearInputHandler} className="btn btn-danger m-2">
-          Cancelar
-        </button>}
-        
+        {newPrBrand !== "" && (
+          <button onClick={clearInputHandler} className="btn btn-danger m-2">
+            Cancelar
+          </button>
+        )}
       </form>
-      <ListofProducts products={products} productEdited={productEdited} refreshList = {refreshList} />
+      <ListofProducts
+        products={products}
+        productEdited={productEdited}
+        refreshList={refreshList}
+      />
     </>
   );
 };

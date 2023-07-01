@@ -48,21 +48,21 @@ function LogIn() {
     const adminAccount = userData.find(
       (data) =>
         data.email === inputMail &&
-        data.contraseña === inputPassword &&
+        data.password === inputPassword &&
         data.userCat === "admin"
     );
 
     const employeeAccount = userData.find(
       (data) =>
         data.email === inputMail &&
-        data.contraseña === inputPassword &&
+        data.password === inputPassword &&
         data.userCat === "employee"
     );
 
     const clientAccount = userData.find(
       (data) =>
         data.email === inputMail &&
-        data.contraseña === inputPassword &&
+        data.password === inputPassword &&
         data.userCat === "client"
     );
 
@@ -130,14 +130,16 @@ function LogIn() {
         </Modal.Header>
         <Modal.Body>
           <form className="modal-form">
-            <label>Email</label>
+            <label htmlFor="email">Email</label>
             <input
+              id="email"
               placeholder="Usuario"
               value={inputMail}
               onChange={emailInputHandler}
             />
-            <label>Contraseña</label>
+            <label htmlFor="password">Contraseña</label>
             <input
+              id="password"
               placeholder="Contraseña"
               value={inputPassword}
               type="password"

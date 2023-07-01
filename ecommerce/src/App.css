@@ -1,3 +1,8 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+
+
 html,
 body,
 div#root {
@@ -7,11 +12,10 @@ div#root {
 }
 
 .App {
-  height: 100%;
   width: 100%;
   min-height: 100%;
-  font-family: "Rubik", sans-serif;
-  margin-bottom: -5%;
+  font-family: "Roboto", sans-serif;
+  
 }
 
 .theme-button button {
@@ -22,7 +26,7 @@ div#root {
   cursor: pointer;
   border-radius: 5px;
   border: 2px solid #212529;
-  background: #212529;
+  background: #a8a8a8;
   margin-left: 80%;
 }
 
@@ -36,13 +40,10 @@ div#root {
 }
 .light-mode th {
   background-color: #f2f2f2;
-  color: #000000;
+  color: #3d3d3d;
 }
 
-.light-mode button {
-  background-color: #f2f2f2;
-  color: #000000;
-}
+
 
 .light-mode label {
   color: #513a04;
@@ -58,15 +59,31 @@ div#root {
   background-color: #333333;
 }
 
-.dark-mode button {
-  background-color: #333333;
+.dark-mode li {
+  background-image: rgb(51,51,51);;
   color: #ffffff;
 }
-
+.dark-mode li:hover {
+  background-color: #323232;
+  color: #fcfcfc;
+}
 .dark-mode th {
   color: #000000;
 }
 
 .dark-mode {
   color: #f2f2f2;
+}
+.sucess {
+  background-color: #224515;
+
+}
+
+.dark-mode .nav-link {
+  color:white;
+}
+
+
+li:hover {
+  cursor: pointer;
 }
