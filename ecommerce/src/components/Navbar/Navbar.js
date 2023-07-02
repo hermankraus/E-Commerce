@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import LogIn from "../LogIn/LogIn";
 import { AuthContext } from "../Contexts/AuthContext";
 import { useContext } from "react";
-import { ThemeContext } from "../../ThemeContext";
+import { ThemeContext } from "../Contexts/ThemeContext";
 
 const Navbar = () => {
   const { userType } = useContext(AuthContext);
@@ -61,14 +61,16 @@ const Navbar = () => {
                 <LogIn />
               </Link>
             </li>
-            <li><button
-              className={`navbar-button ${
-                darkMode ? "dark-mode" : "light-mode"
-              }`}
-              onClick={toggleDarkMode}
-            >
-              {darkMode ? <FaSun /> : <FaMoon />}
-            </button></li>
+            <li>
+              <button
+                className={`navbar-button ${
+                  darkMode ? "dark-mode" : "light-mode"
+                }`}
+                onClick={toggleDarkMode}
+              >
+                {darkMode ? <FaSun /> : <FaMoon />}
+              </button>
+            </li>
           </ul>
         </div>
       </div>

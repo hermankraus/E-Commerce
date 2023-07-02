@@ -10,7 +10,7 @@ import NavBar from "./components/Navbar/Navbar";
 import Shop from "./components/Shop/Shop";
 import Admin from "./components/Admin/Admin";
 import { CartProvider } from "./components/Shop/CartContext";
-import { ThemeContext } from "./ThemeContext";
+import { ThemeContext } from "./components/Contexts/ThemeContext";
 import { AuthContext } from "./components/Contexts/AuthContext";
 import Employee from "./components/Admin/Employee";
 
