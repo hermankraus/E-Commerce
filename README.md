@@ -1,4 +1,4 @@
-Strength Store
+<h1> Strength Store </h1>
 
 An e-commerce project usable for any market.
 
@@ -14,5 +14,5 @@ Herman Kraus
 Version
 1.0
 
-Acknowledgments
+Acknowledgments <br>
 Inspiration, code snippets, frameworks, design, teamwork.
