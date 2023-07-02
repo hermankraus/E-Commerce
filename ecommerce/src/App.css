@@ -1,7 +1,4 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 
 html,
 body,
@@ -15,7 +12,6 @@ div#root {
   width: 100%;
   min-height: 100%;
   font-family: "Roboto", sans-serif;
-  
 }
 
 .theme-button button {
@@ -43,8 +39,6 @@ div#root {
   color: #3d3d3d;
 }
 
-
-
 .light-mode label {
   color: #513a04;
 }
@@ -60,7 +54,7 @@ div#root {
 }
 
 .dark-mode li {
-  background-image: rgb(51,51,51);;
+  background-image: rgb(51, 51, 51);
   color: #ffffff;
 }
 .dark-mode li:hover {
@@ -76,13 +70,11 @@ div#root {
 }
 .sucess {
   background-color: #224515;
-
 }
 
 .dark-mode .nav-link {
-  color:white;
+  color: white;
 }
-
 
 li:hover {
   cursor: pointer;

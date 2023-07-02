@@ -65,7 +65,10 @@ const Shop = () => {
                     <td>{quantity}</td>
                     <td>${parseFloat(product.PRICE).toLocaleString()}</td>
                     <td>
-                      <button onClick={() => handleRemoveFromCart(productId)}>
+                      <button
+                        className="btn btn-danger m-2"
+                        onClick={() => handleRemoveFromCart(productId)}
+                      >
                         Eliminar
                       </button>
                     </td>
@@ -82,7 +85,9 @@ const Shop = () => {
             </tbody>
           </table>
           <div className="checkout">
-            <button onClick={handleBuy}>Finalizar compra</button>
+            <button className="btn btn-success m-2" onClick={handleBuy}>
+              Finalizar compra
+            </button>
           </div>
         </>
       )}
