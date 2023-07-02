@@ -8,7 +8,7 @@ As external services, we used Firebase for the backend and Email.js to implement
 
 Authors
 
-Ezequías Bonvissuto
+Ezequías Bonvissuto <br>
 Herman Kraus
 
 Version
