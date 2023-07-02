@@ -1,5 +1,6 @@
 .carousel-container {
-  display: flex;
+  display: block;
+  margin-top: 5vh;
   justify-content: center;
   align-items: center;
   height: 100vh; 
@@ -9,3 +10,4 @@
   max-width: 1000px; 
   margin: 0 auto;
 }
+
